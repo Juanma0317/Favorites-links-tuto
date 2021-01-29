@@ -27,7 +27,6 @@ await pool.query(`INSERT INTO links set ?`, [newLink]);
 
 router.get(`/`,isLoggedIn,async (req,res)=>{
     const links = await pool.query(`SELECT * FROM links WHERE user_id = ?`, [req.user.id]);
-     console.log(links);
     res.render(`links/list`, { links });
 });
 
